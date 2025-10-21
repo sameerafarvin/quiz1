@@ -23,27 +23,39 @@
             <div class="row">
                 <div class="col text-center">
                     <h1><img id="logo" src="assets/images/logo.png" alt="BeeBrain Logo">BeeBrain</h1>
-                    <h2>General Knowledge Quiz</h2>
                 </div>
             </div>
         </div>
     </header>
     <!--main-->
     <main>
-        <div class="quiz-card">
-            /*<h2>Quiz</h2>*/
-            <p id="question"></p>
+        <div class="container pt-5">
+            <div class="row justify-content-center">
+                <div class="col  text-center quiz-card px-2">
+                    <div class=" text-center ">
+                        <h2>Quiz</h2>
+                        <p id="question"></p>
 
-            <div id="options"></div>
+                        <div id="options"></div>
 
-            <div style="margin-top:15px;">
-                <button id="scoreBtn">Score</button>
-                <button id="nextBtn" style="display:none;">Next</button>
-                <button id="resetBtn">Reset</button>
+                        <div class="mt-5">
+                            <button class=" btn btn-primary my-custom-btn" id="scoreBtn">Score</button>
+                            <button class=" btn btn-primary my-custom-btn" id="nextBtn">Next</button>
+                            <button class=" btn btn-primary my-custom-btn" id="resetBtn">Reset</button>
+                        </div>
+                        <div class="score-output" id="scoreOutput">0</div>
+                        <div class="congrats" id="congratsMsg"> Congratulations!
+                        </div>
+                        <div class="explanation" id="explanation">explanation</div>
+
+
+
+                    </div>
+
+                </div>
             </div>
-
-
         </div>
+
         <!--
         <div class="container text-center mt-4">
             <div class="row">
@@ -90,6 +102,7 @@
     <footer class="pt-4">
         <p>Made by LNS</p>
     </footer>
+    <script src="assets/js/gk.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
