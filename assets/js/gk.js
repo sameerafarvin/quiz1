@@ -1,6 +1,20 @@
 // Wait for the DOM to finish loading before running the quiz
 document.addEventListener("DOMContentLoaded", loadQuestion());
 
+// --- DOM Elements
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const scoreBtn = document.getElementById("scoreBtn");
+const nextBtn = document.getElementById("nextBtn");
+const resetBtn = document.getElementById("resetBtn");
+const scoreOutput = document.getElementById("scoreOutput");
+const explanationEl = document.getElementById("explanation");
+const congratsMsg = document.getElementById("congratsMsg");
+
+// Variables
+let currentQuestion = 0; // Index of the current question
+let totalScore = 0; // User's score
+
 //  QUIZ DATA -Array of questions
 const quizData = [
     {
