@@ -1,4 +1,45 @@
-#logo {
-    width: 150px;
-    height: auto;
+h1 {
+    color: #ac1b1a;
+    font-family: "Arial", sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: "Verdana", sans-serif;
 }
+#logo {
+    width: 100px;
+    height: 100px;
+}
+
+/*main*/
+.quiz-card {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #ac1b1a;
+    box-shadow: 0 0 15px #ac1b1a;
+    border-radius: 10px;
+    padding: 2rem;
+    transition: transform 0.3s;
+    cursor: pointer;
+    color: #ac1b1a;
+}
+
+.quiz-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ac1b1a;
+}
+.quiz-card img {
+    width: 100%;
+    border-radius: 8px;
+    image-rendering: pixelated;
+}
+
+/* Footer styling */
+footer {
+    margin-top: auto;
+    background-color: #ac1b1a;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+/* gk-index*/
