@@ -56,3 +56,23 @@ footer {
     background-color: #ac1b1a;
     transform: scale(1.05);
 }
+.option {
+    display: block;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+.option:hover {
+    background: #f9fafb;
+}
+.option.correct {
+    border-color: #4ade80;
+    background: #dcfce7;
+}
+.option.incorrect {
+    border-color: #f87171;
+    background: #fee2e2;
+}
