@@ -1,52 +1,34 @@
-// Wait for the DOM to finish loading before running the quiz
-document.addEventListener("DOMContentLoaded", loadQuestion());
-
-// --- DOM Elements
-const questionEl = document.getElementById("question");
-const optionsEl = document.getElementById("options");
-const submitBtn = document.getElementById("submitBtn");
-const nextBtn = document.getElementById("nextBtn");
-const resetBtn = document.getElementById("resetBtn");
-const scoreOutput = document.getElementById("scoreOutput");
-const explanationEl = document.getElementById("explanation");
-const congratsMsg = document.getElementById("congratsMsg");
-
-// Variables
-let currentQuestion = 0; // Index of the current question
-let totalScore = 0; // User's score
-
-//  QUIZ DATA -Array of questions
+// --- QUIZ DATA ---
 const quizData = [
     {
-        question: "1. What is the color of the sky on a clear day?",
-        options: ["Blue", "Green", "Red", "Yellow"],
-        correct: 0,
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Venus"],
+        correct: 1,
         explanation:
-            "The sky appears blue during the day due to the scattering of sunlight by the atmosphere.",
+            "Mars is called the Red Planet because of its reddish appearance from iron oxide on its surface.",
     },
     {
-        question: "2. How many days are there in a leap year?",
-        options: ["364", "365", "366", "367"],
+        question: "What is the capital of France?",
+        options: ["Berlin", "Madrid", "Paris", "Rome"],
+        correct: 2,
+        explanation: "Paris is the capital city of France.",
+    },
+    {
+        question: "Which gas do plants absorb from the atmosphere?",
+        options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
         correct: 2,
         explanation:
-            "A leap year has 366 days, which includes an extra day in February.",
+            "Plants absorb carbon dioxide during photosynthesis to make food.",
     },
     {
-        question: "3. Which animal is known as the ‘King of the Jungle’?",
-        options: ["Lion", "Tiger", "Elephant", "Cheetah"],
-        correct: 0,
-        explanation:
-            "The lion is often referred to as the ‘King of the Jungle’ due to its majestic appearance and position as a top predator.",
-    },
-    {
-        question: "4. How many colors are there in a rainbow?",
+        question: "How many continents are there on Earth?",
         options: ["5", "6", "7", "8"],
         correct: 2,
         explanation:
-            "There are 7 colors in a rainbow: red, orange, yellow, green, blue, indigo, and violet.",
+            "There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.",
     },
     {
-        question: "5.Which is the largest ocean on Earth?",
+        question: "Which is the largest ocean on Earth?",
         options: [
             "Atlantic Ocean",
             "Indian Ocean",
@@ -57,30 +39,58 @@ const quizData = [
         explanation:
             "The Pacific Ocean is the largest and deepest ocean on Earth.",
     },
+    {
+        question: "Who wrote the play “Romeo and Juliet”?",
+        options: [
+            "Charles Dickens",
+            "William Shakespeare",
+            "Leo Tolstoy",
+            "Jane Austen",
+        ],
+        correct: 1,
+        explanation:
+            "William Shakespeare wrote the tragic play “Romeo and Juliet”.",
+    },
 ];
 
-// Function to load the current question and options
+// --- VARIABLES ---
+let currentQuestion = 0;
+let totalScore = 0;
 
+// --- DOM ELEMENTS ---
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const scoreBtn = document.getElementById("scoreBtn");
+const nextBtn = document.getElementById("nextBtn");
+const resetBtn = document.getElementById("resetBtn");
+const scoreOutput = document.getElementById("scoreOutput");
+const explanationEl = document.getElementById("explanation");
+const congratsMsg = document.getElementById("congratsMsg");
+const gkcontainer = document.getElementById("gk");
+
+// --- FUNCTIONS ---
+
+// Loads the current question and options
 function loadQuestion() {
     const q = quizData[currentQuestion];
     questionEl.textContent = q.question;
     optionsEl.innerHTML = "";
 
-    for (let idx = 0; idx < q.options.length; idx++) {
-        const opt = q.options[idx];
+    q.options.forEach((opt, idx) => {
         const label = document.createElement("label");
         label.className = "option";
         label.innerHTML = `<input type="radio" name="quiz" value="${idx}"> ${opt}`;
         optionsEl.appendChild(label);
-    }
+    });
 
     // Reset explanation and buttons
     explanationEl.style.display = "none";
     congratsMsg.style.display = "none";
-    submitBtn.disabled = false;
-    submitBtn.style.display = "inline-block";
+    scoreBtn.disabled = false;
+    scoreBtn.style.display = "inline-block";
     nextBtn.style.display = "none";
 }
+
 // Checks the user's selected answer and updates score
 function checkAnswer() {
     const selected = document.querySelector('input[name="quiz"]:checked');
@@ -106,8 +116,8 @@ function checkAnswer() {
     explanationEl.innerHTML = `<strong>Explanation:</strong> ${q.explanation}`;
     explanationEl.style.display = "block";
 
-    // Disable submit button again
-    submitBtn.disabled = true;
+    // Disable scoring again
+    scoreBtn.disabled = true;
 
     // Show "Next" if not last question
     nextBtn.style.display =
@@ -120,16 +130,21 @@ function checkAnswer() {
     ) {
         congratsMsg.style.display = "block";
     }
+    if (currentQuestion === quizData.length - 1) {
+        showFinalResult();
+    }
 }
+
 // Loads the next question or shows final result
 function goToNextQuestion() {
-    currentQuestion++;
+    ++currentQuestion;
     if (currentQuestion < quizData.length) {
         loadQuestion();
     } else {
         showFinalResult();
     }
 }
+
 // Displays final message after completing quiz
 function showFinalResult() {
     questionEl.textContent = "Quiz Completed!";
@@ -153,6 +168,9 @@ function resetQuiz() {
 }
 
 // --- EVENT LISTENERS ---
-submitBtn.addEventListener("click", checkAnswer);
+scoreBtn.addEventListener("click", checkAnswer);
 nextBtn.addEventListener("click", goToNextQuestion);
 resetBtn.addEventListener("click", resetQuiz);
+
+// --- INITIAL CALL ---
+loadQuestion();

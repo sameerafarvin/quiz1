@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-
-
-
-</head>
 <!-- Classes on body set to work with mt-auto on footer to ensure it always stays at the bottom of the page -->
 
 <body class="d-flex flex-column min-vh-100">
@@ -36,24 +32,25 @@
         <div class="container pt-5">
             <div class="row justify-content-center p-4">
                 <div class="col quiz-card  ">
-                    <div class="quiz-container id=gk">
-                        <h2>GK Quiz</h2>
+                    <div class=" text-center  ">
+                        <h2>Quiz</h2>
                         <p id="question"></p>
 
                         <div id="options"></div>
 
-                        <div style="margin-top:15px;">
-                            <button class="btn my-custom-btn" id="scoreBtn">Submit</button>
-                            <button class="btn my-custom-btn" id="nextBtn" style="display:none;">Next</button>
-                            <button class="btn my-custom-btn" id="resetBtn">Restart</button>
+                        <div class="mt-5">
+                            <button class=" btn  my-custom-btn" id="submitBtn">Submit</button>
+                            <button class=" btn  my-custom-btn" id="nextBtn" style="display:none;">Next</button>
+                            <button class=" btn  my-custom-btn" id="resetBtn">Reset</button>
                         </div>
-
-                        <div class="score-output" id="scoreOutput"></div>
-                        <div class="congrats" id="congratsMsg" style="display:none;">🎉 Congratulations! You got a
-                            perfect score! 🎉</div>
+                        <div class="score-output p-2" id="scoreOutput">0</div>
+                        <div class="congrats" id="congratsMsg" style="display:none;"> Congratulations message
+                        </div>
                         <div class="explanation" id="explanation" style="display:none;">explanation</div>
-                    </div>
 
+
+
+                    </div>
 
                 </div>
             </div>
@@ -105,7 +102,6 @@
     <footer class="pt-4">
         <p>Made by LNS</p>
     </footer>
-    <script src="https://kit.fontawesome.com/20e3680323.js" crossorigin="anonymous"></script>
     <script src="assets/js/gk1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
